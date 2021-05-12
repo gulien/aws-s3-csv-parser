@@ -1,4 +1,4 @@
-module github.com/aws-s3-csv-parser
+module github.com/gulien/aws-s3-csv-parser
 
 go 1.16
 

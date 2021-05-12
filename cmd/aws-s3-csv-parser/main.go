@@ -9,9 +9,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/aws-s3-csv-parser/pkg/csvparser"
-	"github.com/aws-s3-csv-parser/pkg/datastorage"
-	"github.com/aws-s3-csv-parser/pkg/filestorage"
+	"github.com/gulien/aws-s3-csv-parser/pkg/csvparser"
+	"github.com/gulien/aws-s3-csv-parser/pkg/datastorage"
+	"github.com/gulien/aws-s3-csv-parser/pkg/filestorage"
 	flag "github.com/spf13/pflag"
 )
 
