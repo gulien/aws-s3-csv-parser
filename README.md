@@ -44,18 +44,18 @@ As we may not want to rely on manual intervention to trigger the process, we can
 
 The first one relies on AWS lambdas:
 
-![lambda](./assets/lambda.png])
+![lambda](./assets/lambda.png)
 
 Everytime a new object (i.e., CSV file) is put into the S3 bucket, an event triggers a lambda which handles the process.
 This solution has the advantage to be cost-effective, but we might encounter some limitations in the future 
-(e.g, reaching the lambda execution time if the CSV file is too big).
+(e.g, reaching the lambda execution time limit if the CSV file is too big).
 
-The second solution, a bit more complex, relies on a messages' queue + consumer:
+To work around those limitations, the second solution relies on a messages' queue + consumer:
 
-![SQS](./assets/sqs.png])
+![SQS](./assets/sqs.png)
 
-📣 We could also witch from a MySQL database (i,e., AWS RDS) to DynamoDB serverless for saving even more costs, but I
-tend to believe that SQL > No-SQL for data analysis.
+📣 We could also witch from a MySQL database (i,e., AWS RDS) to DynamoDB serverless for saving even more money, but I
+do believe that SQL > No-SQL for data analysis.
 
 ## Development
 
