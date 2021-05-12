@@ -1,4 +1,4 @@
-package storage
+package filestorage
 
 import (
 	"context"
@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-sdk-go/service/s3/s3manager"
 )
 
+// S3Downloader implements Downloader for AWS S3.
 type S3Downloader struct {
 	session *session.Session
 
@@ -17,8 +18,9 @@ type S3Downloader struct {
 	key    string
 }
 
+// NewS3PublicDownloader creates an instance of S3Downloader to a public AWS
+// S3.
 func NewS3PublicDownloader(region, bucket, key string) Downloader {
-
 	return S3Downloader{
 		session: session.Must(session.NewSession(&aws.Config{Region: aws.String(region)})),
 		bucket:  bucket,
@@ -26,6 +28,7 @@ func NewS3PublicDownloader(region, bucket, key string) Downloader {
 	}
 }
 
+// Download downloads a file from a public AWS S3.
 func (storage S3Downloader) Download(ctx context.Context, w io.WriterAt) error {
 	downloader := s3manager.NewDownloader(storage.session)
 
