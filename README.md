@@ -3,6 +3,7 @@
 [![Go Reference](https://pkg.go.dev/badge/github.com/gulien/aws-s3-csv-parser.svg)](https://pkg.go.dev/github.com/gulien/aws-s3-csv-parser)
 [![Lint](https://github.com/gulien/aws-s3-csv-parser/actions/workflows/lint.yml/badge.svg)](https://github.com/gulien/aws-s3-csv-parser/actions/workflows/lint.yml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/gulien/aws-s3-csv-parser)](https://goreportcard.com/report/github.com/gulien/aws-s3-csv-parser)
+
 A simple CLI which downloads a CSV file from S3 and inserts its data into a MySQL database.
 
 ```
