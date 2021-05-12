@@ -23,7 +23,7 @@ type Callback struct {
 	Every int
 
 	// Do is the function called after Every number of records has been
-	// reached. The records length is <= Every - 1.
+	// reached. The records length is equal to Every.
 	Do func(ctx context.Context, records [][]string) error
 }
 
