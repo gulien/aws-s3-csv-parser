@@ -1,4 +1,4 @@
-.PHONY: fmt lint tests todos godoc run build
+.PHONY: fmt lint todos godoc up down run build
 
 # Formats the code, "optimizes" the modules' dependencies.
 fmt:
@@ -8,11 +8,6 @@ fmt:
 # Runs linters.
 lint:
 	golangci-lint run
-
-# Runs tests.
-tests:
-	go test -race -covermode=atomic -coverprofile=coverage.txt ./... &&\
-	go tool cover -html=coverage.txt -o coverage.html
 
 # Shows TODOs.
 todos:
@@ -26,15 +21,28 @@ godoc:
 	$(info http://localhost:6060/pkg/github.com/gulien/aws-s3-csv-parser)
 	godoc -http=:6060
 
+# Starts the MySQL and phpMyAdmin Docker containers.
+up:
+	docker-compose up -d
+
+# Stops the MySQL and phpMyAdmin Docker containers.
+down:
+	docker-compose down
+
 # Runs the application.
 REGION=us-west-2
 BUCKET=work-sample-mk
 KEY=2021/04/events.csv
 TIMEOUT=300
+SKIP_DOWNLOAD=0
 
 run:
-	go run cmd/aws-s3-csv-parser/main.go --region=$(REGION) --bucket=$(BUCKET) --key=$(KEY) --timeout=$(TIMEOUT)
-
+	MYSQL_DATABASE_URL='agent:secret@(127.0.0.1:3306)/events' go run cmd/aws-s3-csv-parser/main.go \
+	--region=$(REGION) \
+	--bucket=$(BUCKET) \
+	--key=$(KEY) \
+	--timeout=$(TIMEOUT) \
+	--skip-download=$(SKIP_DOWNLOAD)
 
 # Builds the application.
 VERSION=snapshot
