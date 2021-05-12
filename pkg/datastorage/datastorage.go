@@ -11,7 +11,7 @@ type Inserter interface {
 type InsertOptions struct {
 	// Formatter formats each value of a record.
 	// Optional.
-	Formatter            func(value string) string
+	Formatter func(value string) string
 	// IgnoreDuplicateError ignores duplicate error from the datasource if set
 	// to true.
 	IgnoreDuplicateError bool
