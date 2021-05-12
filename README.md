@@ -47,14 +47,14 @@ The first one relies on AWS lambdas:
 ![lambda](./assets/lambda.png)
 
 Everytime a new object (i.e., CSV file) is put into the S3 bucket, an event triggers a lambda which handles the process.
-This solution has the advantage to be cost-effective, but we might encounter some limitations in the future 
+This solution is cost-effective, but we might encounter some limitations in the future 
 (e.g, reaching the lambda execution time limit if the CSV file is too big).
 
 To work around those limitations, the second solution relies on a messages' queue + consumer:
 
 ![SQS](./assets/sqs.png)
 
-📣 We could also witch from a MySQL database (i,e., AWS RDS) to DynamoDB serverless for saving even more money, but I
+📣 We could also witch from a MySQL database (i.e., AWS RDS) to DynamoDB serverless for saving even more money, but I
 do believe that SQL > No-SQL for data analysis.
 
 ## Development
