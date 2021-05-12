@@ -38,6 +38,11 @@ the core logic.
 Also, both the file storage (i.e, S3) and data source (i.e, MySQL) could be changed in the future by implementing the
 `filestorage.Downloader` and `datastorage.Inserter` interfaces.
 
+## In case of failure
+
+If the process fails for whatever reasons, one may relaunch the process from the start. Indeed, current implementation 
+ignores the MySQL `Error 1062: Duplicate entry` error. 
+
 ## What's next?
 
 As we may not want to rely on manual intervention to trigger the process, we can imagine two different solutions.
