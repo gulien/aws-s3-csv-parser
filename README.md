@@ -59,7 +59,7 @@ To work around those limitations, the second solution relies on a messages' queu
 
 ![SQS](./assets/sqs.png)
 
-📣 We could also witch from a MySQL database (i.e., AWS RDS) to DynamoDB serverless for saving even more money, but I
+📣 We could also switch from a MySQL database (i.e., AWS RDS) to DynamoDB serverless for saving even more money, but I
 do believe that SQL > No-SQL for data analysis.
 
 ## Development
